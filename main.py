@@ -9,12 +9,16 @@ def main():
     #variaveis.exemplo_int_float()
     #variaveis.exemplo_boolean()
     #funcoes.funcao_executar()
+    #funcoes.calcular_valor_compra_paraguai()
+    funcoes.exercicio_aluno()
     #conversoes.converter_str_para_int()
     #conversoes.converter_str_para_float()
     #conversoes.converter_str_para_boolean()
-    input_usuario.solicitar_string()
-    input_usuario.solicitar_float()
-    input_usuario.solicitar_int()
+    # input_usuario.solicitar_string()
+    # input_usuario.solicitar_float()
+    # input_usuario.solicitar_int()
+
+
 
 if __name__ == "__main__":
     main() # executar uma função chamada de main(principal)
