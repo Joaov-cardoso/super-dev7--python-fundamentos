@@ -4,8 +4,15 @@ from src import conversoes
 from src import input_usuario
 from src.inputs import exemplo_questionary
 from src.exercicios import exercicios_variavies
+from src.exercicio_pratico_json import resolucao
+from src.exercicio_pratico_json import exercicio_01
 
 def main():
+    # exercicio_01.exercicio_01()
+    exercicio_01.exercicio_02()
+
+    #resolucao.resolver()
+
     #variaveis.exemplo_strings()
     #variaveis.apresentar_dados_paciente()
     #variaveis.exemplo_int_float()
@@ -25,7 +32,7 @@ def main():
 
     #exemplo_questionary.exemplos()
     
-    exercicios_variavies.exercicio_dados_produto()
+    #exercicios_variavies.exercicio_dados_produto()
 
 
 
