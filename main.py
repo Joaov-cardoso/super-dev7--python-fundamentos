@@ -6,10 +6,13 @@ from src.inputs import exemplo_questionary
 from src.exercicios import exercicios_variavies
 from src.exercicio_pratico_json import resolucao
 from src.exercicio_pratico_json import exercicio_01
+from src.exercicio_14_11 import atividade
 
 def main():
+    atividade.executar_crud()
+
     # exercicio_01.exercicio_01()
-    exercicio_01.exercicio_02()
+    #exercicio_01.exercicio_02()
 
     #resolucao.resolver()
 
