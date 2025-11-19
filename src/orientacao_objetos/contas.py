@@ -118,8 +118,10 @@ def exemplo_carrinho():
     carrinho.remover_item("Café")  # não existe
     carrinho.remover_item("Feijão")  # já removido
 
-    carrinho.calcular_total()
+    carrinho.exibir_itens()
 
+
+    carrinho.calcular_total()
 
 
 class Item:
@@ -137,8 +139,15 @@ class CarrinhoDeCompras:
         self.itens = [] 
 
 
-    def adicionar_item(self, item: Item):
-        self.itens.append(item)
+    def adicionar_item(self, nome: str, preco: float, quantidade: int):
+        if preco <=0:
+            print(f"Preço inválido: {preco}")
+            return
+        if quantidade <= 0:
+            print(f"Quantidade inválida: {quantidade}")
+            return
+
+        self.itens.append(Item(nome, preco, quantidade))
 
 
     def remover_item(self, nome_item: str):
@@ -147,6 +156,8 @@ class CarrinhoDeCompras:
                 self.itens.pop(i)
                 print(f"Item '{nome_item}' removido.")
                 return
+            
+        print(f"Item '{nome_item}' não encontrado")
 
 
     def exibir_itens(self):
@@ -160,46 +171,61 @@ class CarrinhoDeCompras:
         total = sum(item.subtotal() for item in self.itens)
         print(f"TOTAL A PAGAR: R$ {total:.2f}")
         return total
-# class CarrinhoDeCompras:
-#     def __init__(self):
-#         self.itens = {}
 
 
-#     def adicionar_item(self, nome: str, preco: float, quantidade: int):
-#         if preco <= 0:
-#             print(f"PReço inválido: {preco}")
+#exemplo_carrinho()
 
-#         if quantidade <= 0:
-#             print(f"Quantodade inválida {quantidade}")
+def exemplo_turma():
+    turma = Turma("Python Fundamentos")
 
-#         if nome in self.itens:
-#                 self.itens[nome]["quantidade"] += quantidade
-#         else:
-#             self.itens[nome] = {"preco": preco, "quantidade": quantidade}
-#             print(f"Item '{nome}' adicionado.")
+    turma.listar_alunos()
 
+    # Aluno com todos os dados
+    turma.adicionar_aluno("Vitor", idade=20, email="vitor@example.com", nota=9.5)
 
-#     def remover_item(self, nome):
-#         if nome not in self.itens:
-#             print(f"Item '{nome}' não existe no carrinho.")
-#             return
-#         del self.itens[nome]
-#         print(f"Item '{nome}' removido.")
+    # Aluna só com nome e idade
+    turma.adicionar_aluno("Ana", idade=18)
 
+    # Aluno só com nome e e-mail
+    turma.adicionar_aluno("Marcos", email="marcos@example.com")
 
-#     def exibir_itens(self):
-#         if not self.itens:
-#             print("Carrinho vazio.")
-#             return
+    # Aluna só com nome (mínimo de informação)
+    turma.adicionar_aluno("Julia")
 
-#         print("\nItens no carrinho")
-#         for nome, dados in self.itens.items():
-#             print(f"{nome}: R$ {dados['preco']:.2f} x {dados['quantidade']}")
+    # Tentativa de duplicado
+    turma.adicionar_aluno("Vitor")  # duplicado
 
+    turma.listar_alunos()
+    turma.quantidade_alunos()
 
-#     def calcular_total(self):
-#         total = sum(d["preco"] * d["quantidade"] for d in self.itens.values())
-#         print(f"TOTAL: R$ {total:.2f}")
+    turma.remover_aluno("Ana")
+    turma.remover_aluno("Carlos")  # não existe
+
+    turma.listar_alunos()
+    turma.quantidade_alunos()
 
 
-exemplo_carrinho()
+class Turma:
+    pass
+
+
+exemplo_turma()
+
+
+# def exemplo_agenda():
+#     agenda = AgendaContatos()
+
+#     agenda.listar_contatos()
+#     agenda.adicionar_contato("Ana", "47 99999-0000", "ana@example.com")
+#     agenda.adicionar_contato("Bruno", "47 98888-1111", "bruno@example.com")
+#     agenda.adicionar_contato("Ana", "47 97777-2222", "outraana@example.com")
+
+#     agenda.listar_contatos()
+
+#     agenda.buscar_contato("Bruno")
+#     agenda.buscar_contato("Carlos")
+
+#     agenda.remover_contato("Ana")
+#     agenda.remover_contato("Carlos")
+
+#     agenda.listar_contatos()
