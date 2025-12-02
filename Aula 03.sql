@@ -604,16 +604,29 @@ ALTER TABLE clientes ADD COLUMN data_ultima_compra DATE;
 
 # 119 - Atualizar a data da última compra dos clientes definindo as seguintes datas:
 #       10/11/2024 para id 1
+UPDATE clientes SET data_ultima_compra = '2024-11-10' WHERE id = 1;
 #       15/11/2024 para id 2
+UPDATE clientes SET data_ultima_compra = '2024-11-15' WHERE id = 2;
 #       20/10/2024 para id 3
+UPDATE clientes SET data_ultima_compra = '2024-10-20' WHERE id = 3;
 #       05/09/2024 para id 4
+UPDATE clientes SET data_ultima_compra = '2024-09-05' WHERE id = 4;
 #       18/08/2024 para id 5
+UPDATE clientes SET data_ultima_compra = '2024-08-18' WHERE id = 5;
 #       22/07/2024 para id 6
+UPDATE clientes SET data_ultima_compra = '2024-07-22' WHERE id = 6;
 #       30/06/2024 para id 7
+UPDATE clientes SET data_ultima_compra = '2024-06-30' WHERE id = 7;
 #       12/05/2024 para id 8
+UPDATE clientes SET data_ultima_compra = '2024-05-12' WHERE id = 8;
 #       08/04/2024 para id 9
+UPDATE clientes SET data_ultima_compra = '2024-04-08' WHERE id = 9;
 #       25/03/2024 para id 10
+UPDATE clientes SET data_ultima_compra = '2024-03-25' WHERE id = 10;
+
 # 120 - Consultar os clientes que fizeram a última compra há mais de 120 dias
+SELECT id, nome, DATEDIFF(CURDATE(), data_ultima_compra) FROM clientes WHERE DATEDIFF(CURDATE(), data_ultima_compra) > 120;
+
 # 121 - Consultar os clientes que fizeram a última compra no mesmo mês do cadastro
 # 122 - Consultar a diferença em dias entre a data de cadastro e a última compra de cada cliente
 # 123 - Consultar os clientes cadastrados em 2024
